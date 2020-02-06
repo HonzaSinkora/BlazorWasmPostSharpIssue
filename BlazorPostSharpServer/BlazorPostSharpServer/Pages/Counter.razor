@@ -1,0 +1,24 @@
+﻿@page "/counter"
+@using BlazorApp1.Shared
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<p>Method with an aspect: @Count(@currentCount)</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    [PlusOneAspectOld]
+    public int Count(int i)
+    {
+        return 42;
+    }
+}
